@@ -1,0 +1,837 @@
+/* General */
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+  padding-top: 70px;
+}
+
+/* Tema claro (por defecto) */
+body.light {
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+/* Tema oscuro */
+body.dark {
+  background-color: #121212;
+  color: #f9f9f9;
+}
+
+/* Navbar estilos base */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  height: 70px;
+  transition: background 0.3s ease;
+}
+
+/* Navbar claro */
+body.light .navbar {
+  background: #52a6ff;
+  color: white;
+}
+
+/* Navbar oscuro */
+body.dark .navbar {
+  background: #1f1f1f;
+  color: #f9f9f9;
+}
+
+/* Botón tema */
+.theme-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: transform 0.2s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+}
+
+
+/* Hero Section */
+.hero {
+  position: relative;
+  text-align: center;
+}
+.hero-img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+/* Animación deslizante */
+.slide {
+  animation: slideEffect 0.8s ease-in-out;
+}
+
+@keyframes slideEffect {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background: rgba(25, 113, 171, 0);
+  padding: 20px;
+  border-radius: 8px;
+  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover suave */
+.hero-text:hover {
+  background: rgba(22, 149, 240, 0.479); /* un poco más oscuro */
+  transform: translate(-50%, -50%) scale(1.02); /* ligera ampliación */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);   /* sombra suave */
+}
+.hero-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: white;
+  color: #00BFFF;
+  border: 2px solid #00BFFF;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.hero-btn:hover {
+  background: #00BFFF;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Services */
+.services {
+  padding: 2rem;
+  text-align: center;
+}
+.services-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.service-card {
+  border: 1px;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 250px;
+  background: #f9f9f9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Carousel */
+.carousel {
+  text-align: center;
+  padding: 2rem;
+  background: none;
+}
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-img {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 10px;
+  transition: transform 0.3s;
+}
+.carousel-img:hover {
+  transform: scale(1.05);
+}
+.carousel button {
+  background: #00BFFF;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+.carousel button:hover {
+  background: #007ACC;
+}
+
+/* Contact */
+.contact {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--secondary);
+}
+
+.contact-form textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.btn-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: #007bff; 
+  color: white !important; 
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #0056b3; 
+  transform: scale(1.05);
+}
+
+.btn.whatsapp {
+  background: #25d366;
+  color: white !important;
+}
+
+.btn.whatsapp:hover {
+  background: #1ebe57;
+}
+
+/* Hero Carousel */
+.hero {
+  position: relative;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 450px;
+}
+
+.hero-slider {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  height: 100%;
+}
+
+.hero-img {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-img.active {
+  opacity: 1;
+  position: relative;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: scale(1);
+}
+.fade-out {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.hero-btn-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 191, 255, 0.7);
+  color: white;
+  border: none;
+  font-size: 26px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.hero-btn-nav:hover {
+  background: var(--secondary);
+}
+.hero-btn-nav:first-of-type {
+  left: 15px;
+}
+.hero-btn-nav:last-of-type {
+  right: 15px;
+}
+
+.hero-text {
+  margin-top: 1.5rem;
+}
+.hero-text h2 {
+  font-size: 2rem;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+.hero-text p {
+  font-size: 1.1rem;
+}
+
+/* Info */
+.info {
+  padding: 2rem;
+  text-align: center;
+
+  
+}
+.info h2 {
+  color: #007ACC;
+}
+
+/* Misión y Visión */
+.mision-vision {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+.card {
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  background: #E6F7FF;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: transform 0.6s, box-shadow 0.6s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.card h3 {
+  color: #00BFFF;
+}
+
+/* Rules */
+.rules {
+  padding: 2rem;
+  text-align: center;
+}
+.rules ul {
+  list-style: none;
+  padding: 0;
+}
+.rules li {
+  margin: 10px 0;
+  padding: 12px;
+  background: #f0f8ff;
+  border-left: 5px solid #00BFFF;
+  border-radius: 6px;
+  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover suave */
+.rules li:hover {
+  background: #d9f0fb; /* un celeste más notorio */
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Founder */
+.founder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.founder-img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+.founder-img:hover {
+  transform: scale(1.05);
+}
+.founder-text {
+  max-width: 500px;
+}
+.founder-text h2 {
+  color: #007ACC;
+}
+
+/* Particulasd
+
+/* Contenedor del canvas de partículas: fijo al fondo */
+.particles-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;           /* detrás del contenido */
+  pointer-events: none; /* no bloquea clics */
+}
+
+.particles-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Asegura que el contenido quede por encima del fondo */
+.app-root {
+  position: relative;
+  z-index: 1;
+  background: transparent; /* deja ver partículas */
+}
+
+/* Si tu Navbar tenía z-index, mantenlo mayor a 1 */
+
+
+/* Paleta base (ya la tienes, por si acaso) */
+:root {
+  --primary: #0d47a1;   /* azul fuerte */
+  --secondary: #29b6f6; /* celeste */
+  --light: #ffffff;
+  --dark: #222;
+}
+
+/* Tip: si alguna sección tiene fondo sólido y no quieres tapar del todo las partículas, usa blancos translúcidos */
+.section-translucida {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: saturate(120%) blur(2px);
+  border-radius: 10px;
+}
+
+/* ====== LOGROS ====== */
+.achievements-section {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  justify-items: center; /* 🔹 centra cada tarjeta dentro de la rejilla */
+}
+.achievement-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  max-width: 500px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+}
+
+.video-card iframe {
+  border-radius: 0.5rem;
+}
+
+.achievements-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.achievements-grid-videos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .achievements-grid-videos {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.achievements-subtitle {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.achievements-grid-reasons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .achievements-grid-reasons {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* ====== CARTILLAS ====== */
+
+/* ====== COLORES DE TÍTULOS ====== */
+.text-blue {
+  color: #2563eb; /* azul */
+}
+
+.text-green {
+  color: #16a34a; /* verde */
+}
+
+.text-purple {
+  color: #9333ea; /* morado */
+}
+
+/* ====== VIDEOS ====== */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Proporción 16:9 */
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ====== FOOTER ====== */
+.footer {
+  background: #1e293b; /* gris oscuro elegante */
+  color: #f1f5f9;
+  padding: 1.5rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ====== ICONOS SOCIALES ====== */
+.social-icons {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.social-link {
+  font-size: 1.5rem;
+  color: #f1f5f9;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-link:hover {
+  color: #38bdf8; /* celeste brillante */
+  transform: scale(1.2);
+}
+
+/* ====== ACHIEVEMENTS ====== */
+.achievements-section {
+  margin: 3rem 1rem; /* 🔹 margenes laterales adaptables */
+  text-align: center;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 🔹 adaptable */
+  gap: 2rem;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px; /* 🔹 límite para pantallas muy grandes */
+  margin: 0 auto; /* 🔹 centra todo el bloque */
+}
+
+.achievement-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 500px; /* 🔹 no se hace demasiado grande */
+  transition: transform 0.3s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-5px);
+}
+
+/* 🔹 Ajuste para los videos */
+.video-card iframe {
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 250px;
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .achievements-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .achievements-section {
+    margin: 2rem 1rem;
+  }
+
+  .achievement-card {
+    padding: 1rem;
+    max-width: 100%; /* 🔹 usa todo el ancho en móvil */
+  }
+
+  .video-card iframe {
+    height: 200px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .video-card iframe {
+    height: 180px;
+  }
+}
+
+/* ====== TEMAS ====== */
+body.light {
+  background-color: #f4f4f4;
+  color: #222;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #f9f9f9;
+}
+
+/* ====== NAVBAR ====== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  height: 70px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.light .navbar {
+  background: #52a6ff;
+  color: white;
+}
+
+body.dark .navbar {
+  background: #1f1f1f;
+  color: #f9f9f9;
+}
+
+/* ====== BOTONES ====== */
+.theme-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 10px;
+  color: inherit;
+  transition: transform 0.2s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ====== CARDS ====== */
+
+
+/* Cards claras */
+body.light .card {
+  background: #ffffff; /* Blanco */
+  color: #222;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Cards oscuras */
+body.dark .card {
+  background: #1e1e1e; /* Gris oscuro */
+  color: #f9f9f9;
+  box-shadow: 0px 2px 12px rgba(255,255,255,0.05);
+}
+
+/* INFO SECTION */
+
+
+/* RULES */
+body.light .rules li {
+  background: #f0f8ff;
+  color: #222;
+  border-left: 5px solid #00BFFF;
+}
+
+body.dark .rules li {
+  background: #2a2a2a;
+  color: #f9f9f9;
+  border-left: 5px solid #29b6f6;
+}
+
+/* FOUNDER SECTION */
+body.light .founder-text h2 {
+  color: #007ACC;
+}
+body.dark .founder-text h2 {
+  color: #29b6f6;
+}
+
+body.light .founder-text p,
+body.light .founder-text h4 {
+  color: #333;
+}
+body.dark .founder-text p,
+body.dark .founder-text h4 {
+  color: #ddd;
+}
+
+body.light .service-card {
+  background: #f0f8ff;
+  color: #222;
+}
+body.dark .service-card {
+  background: #2a2a2a;
+  color: #f9f9f9;
+}
+
+body.light .achievement-card{
+  background: #f0f8ff;
+  color: #222;
+}
+body.dark .achievement-card {
+  background: #2a2a2a;
+  color: #f9f9f9;
+}
+
+/* ====== CONTACT ====== */
+.contact {
+  padding: 3rem 1rem;
+  text-align: center;
+  border-radius: 12px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Inputs y textarea */
+.contact-form input,
+.contact-form textarea {
+  transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+body.light .contact-form input,
+body.light .contact-form textarea {
+  background: #fff;
+  color: #222;
+  border: 1px solid #ccc;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  background: #2a2a2a;
+  color: #f9f9f9;
+  border: 1px solid #444;
+}
+
+
+
+
+

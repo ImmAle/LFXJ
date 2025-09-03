@@ -1,0 +1,139 @@
+/* ===== NAVBAR: comportamiento en flujo normal (se desplaza con el scroll) ===== */
+
+.navbar-wrapper {
+  width: 100%;
+  /* no forzamos position:fixed ni sticky aquí — el wrapper permanece en flujo */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background: rgb(82, 166, 255);
+  color: #fff;
+
+  /* IMPORTANT: position relative para que z-index funcione y siga en flujo */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* debe estar por encima del canvas (z-index 0) */
+  height: 70px;
+  box-sizing: border-box;
+}
+
+/* Marca */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05); /* ligero zoom */
+}
+.escudo {
+  width: 45px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.escudo:hover {
+  transform: rotate(-5deg) scale(1.1); /* giro suave con zoom */
+}
+.logo-text {
+  font-size: 1.3rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.logo-text:hover {
+  color: var(--accent-color, #ffd700); /* usa un color acento configurable */
+}
+
+/* Enlaces (modo escritorio) */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background-color 0.18s, transform 0.12s;
+}
+.nav-links li a:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-2px);
+}
+
+/* Botón hamburguesa (oculto en escritorio) */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 6px;
+  line-height: 1;
+  z-index: 2100; /* encima del overlay toggle, por seguridad */
+}
+
+/* ===== Responsive: overlay fullscreen en móvil/tablet ===== */
+@media (max-width: 768px) {
+  /* mostramos el botón */
+  .menu-btn {
+    display: block;
+  }
+
+  /* ocultamos temporalmente los links en flujo; usaremos overlay */
+  .nav-links {
+    position: fixed;        /* overlay fullscreen */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.2rem;
+    background: rgba(0,0,0,0.96);
+    transform: translateY(-6%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 260ms ease, transform 260ms ease, visibility 260ms;
+    z-index: 2050; /* encima del navbar (nav z-index 2000) */
+  }
+
+  /* cuando está abierto */
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-links li a {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+  }
+}
+
+/* pequeños ajustes para accesibilidad y foco */
+.nav-links li a:focus {
+  outline: 2px solid rgba(255,255,255,0.12);
+  outline-offset: 3px;
+}
