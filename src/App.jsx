@@ -7,22 +7,26 @@ import Services from "./pages/Services";
 import Achievements from "./pages/Achievements";
 import Contact from "./pages/Contact";
 import BackgroundParticles from "./components/BackgroundParticles";
+import ScrollToTop from "./components/ScrollToTop";
+
 
 function App() {
   return (
     <>
-      {/* Fondo de partículas */}
       <BackgroundParticles />
-
-      {/* Contenido principal */}
       <div className="app-root relative z-10">
         <Navbar />
+        <ScrollToTop />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/servicios" element={<Services />} />
           <Route path="/logros" element={<Achievements />} />
           <Route path="/contacto" element={<Contact />} />
+
+        
         </Routes>
+
         <Footer />
       </div>
     </>

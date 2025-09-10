@@ -97,7 +97,7 @@ const Home = () => {
             Luis Fabio Xammar Jurado fue un destacado diplomático, periodista y político peruano del siglo XX. Se desempeñó en diversos cargos en el servicio exterior, representando al Perú en varios países y defendiendo los intereses nacionales en el ámbito internacional. También incursionó en la política y en la prensa, contribuyendo con ideas y análisis sobre la realidad nacional. Su labor lo convirtió en una figura influyente dentro de la vida pública peruana.
           </p>
         </div>
-      </section>ç
+      </section>
     </div>
   );
 };

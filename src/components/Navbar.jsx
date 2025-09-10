@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa"; // 👉 iconos react-icons
+import escudo from "/src/assets/images/escudo.png"; // ✅ importamos la imagen
 import "/src/styles/Navbar.css";
 
 const Navbar = () => {
@@ -27,11 +28,8 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <img
-          src="/src/assets/images/escudo.png"
-          alt="Escudo Colegio"
-          className="escudo"
-        />
+        {/* ✅ usamos el import en vez de ruta absoluta */}
+        <img src={escudo} alt="Escudo Colegio" className="escudo" />
         <h1 className="logo-text">Luis Fabio Xammar Jurado</h1>
       </div>
 
